@@ -10,7 +10,9 @@ router.get("/", (req, res) => {
         .sort({ date: -1 })
         .then(items => res.json(items));
 });
+
 // TypeError: Cannot read property 'get' of undefined
+
 // This error is because of the old version of express. 
 
 // POST api/items create an item
