@@ -1,13 +1,31 @@
 {
-  "name": "chat-example",
+  "name": "mern_shopping_list",
   "version": "0.0.0",
   "description": "A chat example to showcase how to use `socket.io` with a static `express` server with `async` for control flow.",
   "main": "server.js",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BradDHuang/shopping_list.git"
+  },
   "author": "Mostafa Eweda <mo.eweda@gmail.com>",
   "dependencies": {
     "async": "~0.2.8",
-    "express": "~3.2.4",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.0.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.12",
     "socket.io": "~0.9.14"
-  }
+  },
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BradDHuang/shopping_list/issues"
+  },
+  "homepage": "https://github.com/BradDHuang/shopping_list#readme"
 }
