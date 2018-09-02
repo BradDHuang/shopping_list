@@ -5,4 +5,9 @@ and then run
 npm install
 
 
+classNames:
+
+<CSSTransition key={id} timeout={500}
+    classNames="fade"
+>
 
