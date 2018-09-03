@@ -1,9 +1,18 @@
 
-import { GET_ITEMS, ADD_ITEM, DELETE_ITEM } from "./types";
+import { GET_ITEMS, ADD_ITEM, DELETE_ITEM, ITEMS_LOADING } from "./types";
+import axios from "axios";
 
-export const getItems = () => ({
-    type: GET_ITEMS,
-});
+export const getItems = () => dispatch => {
+    // type: GET_ITEMS,
+    dispatch(setItemsLoading());
+    axios({method: "get", url: "https://shopping-list-happitt.c9users.io:8081/api/items"})
+        .then(res => 
+            dispatch({
+                type: GET_ITEMS,
+                payload: res.data,
+            })
+        );
+};
 
 export const addItem = (item) => ({
     type: ADD_ITEM,
@@ -15,7 +24,9 @@ export const deleteItem = (id) => ({
     payload: id,
 });
 
-
+export const setItemsLoading = () => ({
+    type: ITEMS_LOADING,
+});
 
 
 
