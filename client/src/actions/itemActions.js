@@ -14,10 +14,21 @@ export const getItems = () => dispatch => {
         );
 };
 
-export const addItem = (item) => ({
-    type: ADD_ITEM,
-    payload: item,
-});
+export const addItem = (item) => dispatch => {
+    // type: ADD_ITEM,
+    // payload: item,
+    axios({
+        method: "post", 
+        url: "https://shopping-list-happitt.c9users.io:8081/api/items",
+        data: item
+    })
+        .then(res => 
+            dispatch({
+                type: ADD_ITEM,
+                payload: res.data,
+            })
+        );
+};
 
 export const deleteItem = (id) => ({
     type: DELETE_ITEM,
