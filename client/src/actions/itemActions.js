@@ -30,10 +30,20 @@ export const addItem = (item) => dispatch => {
         );
 };
 
-export const deleteItem = (id) => ({
-    type: DELETE_ITEM,
-    payload: id,
-});
+export const deleteItem = (id) => dispatch => {
+    // type: DELETE_ITEM,
+    // payload: id,
+    axios({
+        method: "delete", 
+        url: `https://shopping-list-happitt.c9users.io:8081/api/items/${id}`,
+    })
+        .then(res => 
+            dispatch({
+                type: DELETE_ITEM,
+                payload: id,
+            })
+        );
+};
 
 export const setItemsLoading = () => ({
     type: ITEMS_LOADING,
